@@ -12,12 +12,14 @@ html {
 .container {
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 100px;
   background-color: #001f7c38;
+  padding-top: 70px;
+  box-sizing: border-box;
 }
 
 .back-vid {
@@ -30,7 +32,7 @@ html {
 
 header {
   display: flex;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
@@ -42,6 +44,15 @@ header {
   backdrop-filter: blur(5px);
   box-shadow: 0 0 15px #72a1dea2;
   z-index: 999;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 0 15px;
+    height: 60px;
+  }
 }
 
 .left {
@@ -108,7 +119,6 @@ header ul a:hover {
   box-shadow: 0 0 15px #72a1de;
 }
 
-
 .blackhole-box {
   position: absolute;
   top: 0;
@@ -128,20 +138,77 @@ header ul a:hover {
   width: 500px;
   height: 500px;
   margin-right: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 1024px) {
+  .foto img {
+    width: 300px;
+    height: 300px;
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .foto img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 480px) {
+  .foto img {
+    width: 150px;
+    height: 150px;
+  }
 }
 
 .hero {
   position: relative;
   display: flex;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   align-items: center;
   justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 40px;
+    min-height: auto;
+    padding: 100px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    gap: 20px;
+    padding: 80px 20px 20px;
+  }
 }
 
 .hero-info {
-  position: absolute;
-  left: 5%;
+  position: relative;
+  left: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .hero-info {
+    align-items: center;
+    text-align: center;
+  }
 }
 
 .hero-info .hero-info-title {
@@ -163,11 +230,56 @@ header ul a:hover {
   margin-bottom: 30px;
 }
 
+@media (max-width: 1024px) {
+  .hero-info h1 {
+    font-size: 45px;
+    line-height: 55px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-info h1 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-info h1 {
+    font-size: 28px;
+    line-height: 35px;
+  }
+}
+
 .hero-info p {
   max-width: 550px;
   line-height: 25px;
   margin-bottom: 40px;
   font-size: 20px;
+}
+
+@media (max-width: 1024px) {
+  .hero-info p {
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 500px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-info p {
+    font-size: 14px;
+    line-height: 20px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-info p {
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 300px;
+  }
 }
 
 .hero-info button {
@@ -210,8 +322,17 @@ header ul a:hover {
 }
 
 .skills-video-box {
-  position: absolute;
-  right: 3%;
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .skills-video-box {
+    order: -1;
+  }
 }
 
 .skills-video {
@@ -223,12 +344,28 @@ header ul a:hover {
   height: 50px;
   width: 30px;
   border: 2px solid lightgray;
-  position: absolute;
-  left: 49%;
-  bottom: 8%;
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.626);
+  z-index: 100;
+}
+
+@media (max-width: 768px) {
+  .scroll-down {
+    bottom: 30px;
+    height: 40px;
+    width: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-down {
+    display: none;
+  }
 }
 .scroll-down::before,
 .scroll-down::after {
@@ -271,8 +408,11 @@ header ul a:hover {
   display: flex;
   align-items: center;
   flex-direction: column;
-  width: 80%;
-  margin-top: 100px;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 80px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .section-title {
@@ -282,11 +422,23 @@ header ul a:hover {
 
 .info-cards {
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
-  height: 100%;
   margin-top: 30px;
+}
+
+@media (max-width: 992px) {
+  .info-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .info-cards {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
 }
 
 .card {
@@ -294,13 +446,16 @@ header ul a:hover {
   align-items: flex-start;
   justify-content: center;
   position: relative;
-  width: auto;
-  height: 40vh;
+  width: 100%;
+  height: auto;
+  min-height: 280px;
   overflow: hidden;
   border: 1px solid gray;
   background-color: #080020b7;
   border-radius: 20px;
   transition: 0.5s;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .card h1 {
@@ -363,7 +518,7 @@ header ul a:hover {
 
 .card:nth-child(3) {
   grid-row: span 2;
-  height: 83vh;
+  height: auto;
 }
 
 .card:nth-child(3) p {
@@ -386,25 +541,60 @@ header ul a:hover {
   bottom: 35%;
 }
 
+@media (max-width: 1024px) {
+  .card:nth-child(3) {
+    grid-row: span 1;
+    height: auto;
+  }
+
+  .card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    min-height: 220px;
+    padding: 12px;
+  }
+}
+
 .my-project {
   display: flex;
   flex-direction: column;
-  gap: 10%;
+  gap: 50px;
   align-items: center;
   position: relative;
-  width: 80%;
-  height: 100vh;
-  margin-top: 200px;
-  margin-bottom: 700px;
+  width: 90%;
+  max-width: 1200px;
+  margin-top: 160px;
+  margin-bottom: 120px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .project-card {
   display: flex;
   width: 100%;
-  height: 40%;
   align-items: center;
-  gap: 10%;
+  gap: 40px;
   justify-content: center;
+}
+
+@media (max-width: 1024px) {
+  .project-card {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .my-project {
+    width: 95%;
+    gap: 30px;
+    margin-top: 80px;
+    margin-bottom: 60px;
+  }
 }
 
 .project-vidbox {
@@ -416,12 +606,14 @@ header ul a:hover {
   position: relative;
   cursor: pointer;
   transition: 0.5s;
-  min-width: 400px;
+  min-width: 300px;
+  box-sizing: border-box;
 }
 
 .project-vidbox video {
   object-fit: cover;
   width: 100%;
+  height: auto;
   box-shadow: 0 0 10px lightgray;
   border-radius: 20px;
   transition: 0.5s;
@@ -434,17 +626,17 @@ header ul a:hover {
 .project-info {
   display: flex;
   flex-direction: column;
-  align-items: start;
+  align-items: flex-start;
   justify-content: center;
   width: 50%;
-  padding-left: 10%;
+  padding-left: 40px;
+  box-sizing: border-box;
 }
 
 .project-info h1 {
   width: 90%;
   font-size: 25px;
   font-weight: bold;
-  text-wrap: nowrap;
   margin-top: 0;
   margin-bottom: 10px;
   max-width: 450px;
@@ -452,10 +644,32 @@ header ul a:hover {
 
 .project-info p {
   width: 90%;
-  max-width: 400px;
-  min-width: 300px;
-  margin-bottom: 50px;
+  max-width: 600px;
+  margin-bottom: 30px;
   margin-top: 0;
+}
+
+@media (max-width: 1024px) {
+  .project-vidbox,
+  .project-info {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .project-info {
+    align-items: center;
+    text-align: center;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-info h1 {
+    font-size: 20px;
+  }
+  .project-info p {
+    font-size: 14px;
+  }
 }
 
 .project-info button {
@@ -760,8 +974,6 @@ header ul a:hover {
     padding: 1rem 1.5rem;
   }
 }
-
-
 
 /* BLUR EFFECT ANIMAION */
 
@@ -1331,4 +1543,34 @@ header ul a:hover {
 .btn-download:hover {
   transform: translateY(-3px);
   box-shadow: 0 0 15px rgba(78, 158, 255, 0.5);
+}
+
+/* Ensure hamburger menu is visible and tappable on small devices */
+@media (max-width: 1024px) {
+  .menu-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    gap: 6px;
+    z-index: 1002;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* hide large nav elements when showing the hamburger */
+  header ul {
+    display: none !important;
+  }
+
+  header .box-icons {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .menu-icon {
+    font-size: 26px;
+    padding: 10px;
+  }
 }
