@@ -620,6 +620,16 @@ header ul a:hover {
   transition: 0.5s;
 }
 
+.project-vidbox img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 0 10px lightgray;
+  border-radius: 20px;
+  transition: 0.5s;
+  display: block;
+}
+
 .project-card video:hover {
   box-shadow: 0 0 25px rgb(255, 255, 255);
 }
